@@ -41,12 +41,12 @@ const Orders: React.FC<Props> = () => {
   if (error) return <h2 className="header--center">{error}</h2>
 
   if (!orders || orders.length === 0)
-    return <h2 className="header--center">You have no orders</h2>
+    return <h2 className="header--center">注文がまだありません</h2>
 
   return (
     <div className="page--orders">
       <div className="orders-header">
-        <h2 className="header header--orders">Your orders</h2>
+        <h2 className="header header--orders">注文履歴</h2>
         <div className="orders-tabs">
           {orderTabs.map((tab) => (
             <Tab
@@ -63,16 +63,16 @@ const Orders: React.FC<Props> = () => {
       <div className="orders-details">
         <div className="orders-content">
           <div className="orders-column">
-            <h3 className="header--center">Purchased date</h3>
+            <h3 className="header--center">支払日</h3>
           </div>
           <div className="orders-column">
-            <h3 className="header--center">Quantity</h3>
+            <h3 className="header--center">量</h3>
           </div>
           <div className="orders-column">
-            <h3 className="header--center">Amount ($)</h3>
+            <h3 className="header--center">総額 (円)</h3>
           </div>
           <div className="orders-column">
-            <h3 className="header--center">Shipment status</h3>
+            <h3 className="header--center">配送状況</h3>
           </div>
         </div>
 

@@ -50,7 +50,7 @@ const ShipmentStatusControl: React.FC<Props> = ({
         disabled={loading || newStatus === shipmentStatus}
         onClick={handleUpdateStatus}
       >
-        Update
+        更新する
       </Button>
     </div>
   )

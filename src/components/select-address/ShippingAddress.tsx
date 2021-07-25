@@ -29,10 +29,10 @@ const ShippingAddress: React.FC<Props> = ({
     <div className="shipping-address">
       <div className="shipping-address__detail">
         <h4 className="header">{fullname}</h4>
+        <p className="paragraph">{zipCode}</p>
         <p className="paragraph">{address1}</p>
         {address2 && <p className="paragraph">{address2}</p>}
-        <p className="paragraph">{city}</p>
-        <p className="paragraph">{zipCode}</p>
+        {/* <p className="paragraph">{city}</p> */}
         <p className="paragraph">{phone}</p>
       </div>
 
@@ -45,7 +45,7 @@ const ShippingAddress: React.FC<Props> = ({
           history.push({ pathname: '/buy/checkout' })
         }}
       >
-        Deliver to this address
+        この住所に送る
       </Button>
 
       <div className="shipping-address__edit">

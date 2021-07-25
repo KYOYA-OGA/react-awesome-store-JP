@@ -230,7 +230,7 @@ const CheckoutPage: React.FC<Props> = () => {
   return (
     <div className="page--checkout">
       <div className="payment">
-        <h2 className="header">Select a payment card</h2>
+        <h2 className="header">支払い用カードを選択してください</h2>
         <form className="form" onSubmit={handleCompletePayment}>
           {/* saved card */}
           {fetchCardsLoading ? (
@@ -288,14 +288,14 @@ const CheckoutPage: React.FC<Props> = () => {
                   {method.id ===
                   stripeCustomer?.invoice_settings.default_payment_method ? (
                     <p className="paragraph--center paragraph--focus">
-                      Default
+                      デフォルト
                     </p>
                   ) : useCard.type === 'saved' &&
                     useCard.payment_method === method.id ? (
                     <div>
                       <input type="checkbox" name="setDefault" ref={register} />
                       <label htmlFor="setDefault" className="set-default-card">
-                        Set as default
+                        デフォルトに設定する
                       </label>
                     </div>
                   ) : undefined}
@@ -339,7 +339,7 @@ const CheckoutPage: React.FC<Props> = () => {
                 className="paragraph paragraph--bold"
                 style={{ width: '30%' }}
               >
-                Use new card
+                新しいカードを使用する
               </h4>
               <p className="paragraph" style={{ width: '5%' }}></p>
               <div className="new-card__logo" style={{ width: '45%' }}>
@@ -375,8 +375,8 @@ const CheckoutPage: React.FC<Props> = () => {
                     type="text"
                     className="input input--card-name"
                     name="cardName"
-                    placeholder="Name on card"
-                    ref={register({ required: 'Card name is required.' })}
+                    placeholder="テスト用 4242 4242 4242 4242"
+                    ref={register({ required: 'カード名は必須です' })}
                   />
                   {errors.cardName && (
                     <p className="paragraph paragraph--small paragraph--error">
@@ -409,7 +409,7 @@ const CheckoutPage: React.FC<Props> = () => {
                       onClick={() => setOpenSetDefault((prev) => !prev)}
                     />
                     <label htmlFor="saveCard" className="paragraph">
-                      Save this card
+                      このカードを保存する
                     </label>
                   </div>
 
@@ -417,7 +417,7 @@ const CheckoutPage: React.FC<Props> = () => {
                     <div className="form__input-container">
                       <input type="checkbox" name="setDefault" ref={register} />
                       <label htmlFor="setDefault" className="paragraph">
-                        Save as default
+                        デフォルトに設定する
                       </label>
                     </div>
                   )}
@@ -444,7 +444,7 @@ const CheckoutPage: React.FC<Props> = () => {
       <div className="summary">
         {/* Shipping address */}
         <div className="summary__section">
-          <h3 className="header">Delivery address</h3>
+          <h3 className="header">配送先住所</h3>
           <p className="paragraph paragraph--focus">{fullname}</p>
           <p className="paragraph paragraph--focus">{address1}</p>
           {address2 && <p className="paragraph paragraph--focus">{address2}</p>}
@@ -456,18 +456,18 @@ const CheckoutPage: React.FC<Props> = () => {
 
         {/* Order summary */}
         <div className="summary__section">
-          <h3 className="header">Order summary</h3>
+          <h3 className="header">注文詳細</h3>
           <div className="order-summary">
             <div>
-              <p className="paragraph paragraph--focus">Total quantity:</p>
-              <p className="paragraph paragraph--focus">Total amount</p>
+              <p className="paragraph paragraph--focus">総量</p>
+              <p className="paragraph paragraph--focus">合計</p>
             </div>
             <div>
               <p className="paragraph paragraph--focus">
-                {orderSummary && orderSummary.quantity} pcs
+                {orderSummary && orderSummary.quantity}個
               </p>
               <p className="paragraph paragraph--focus">
-                ${orderSummary && orderSummary.amount}
+                {orderSummary && orderSummary.amount}円
               </p>
             </div>
           </div>
@@ -482,15 +482,15 @@ const CheckoutPage: React.FC<Props> = () => {
             disabled={disabled || loading || !stripe || !useCard}
             loading={loading}
           >
-            Complete payment
+            支払う
           </Button>
         </div>
       </div>
 
       {openDialog && dialogType === 'inform_payment' && (
         <AlertDialog
-          header="Confirm Payment"
-          message='You have successfully mede the payment, you can click "OK" below to view your order.'
+          header="ありがとうございます！"
+          message="お支払いが完了しました。OKを押して注文情報を確認できます。"
           onConfirm={() => {
             setOpenDialog(false)
             setDialogType(null)
@@ -502,8 +502,8 @@ const CheckoutPage: React.FC<Props> = () => {
 
       {openDialog && dialogType === 'remove_card' && cardToDelete && (
         <AlertDialog
-          header="Please confirm"
-          message={`Are you sure you want to remove ${cardToDelete.card?.brand}: **** **** **** ${cardToDelete.card?.last4}`}
+          header="確認してください"
+          message={`本当に ${cardToDelete.card?.brand}: **** **** **** ${cardToDelete.card?.last4}を削除しますか？`}
           loading={removeCardLoading}
           error={removeCardError}
           onCancel={() => {

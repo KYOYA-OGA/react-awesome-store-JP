@@ -48,7 +48,7 @@ const AddAndEditAddress: React.FC<Props> = ({
       zipCode === data.zipCode &&
       phone === data.phone
     ) {
-      alert('No changed have been made')
+      alert('変更されていません')
       return
     }
 
@@ -74,59 +74,60 @@ const AddAndEditAddress: React.FC<Props> = ({
           setAddressToEdit(null)
         }}
       >
-        Clear all
+        もとに戻す
       </p>
       <Input
-        label="Fullname"
+        label="お名前"
         name="fullname"
         defaultValue={addressToEdit ? addressToEdit.fullname : ''}
-        placeholder="Full name"
-        ref={register({ required: 'Full name is required' })}
+        placeholder="お名前"
+        ref={register({ required: 'お名前は必須です' })}
         error={errors.fullname?.message}
       />
       <Input
-        label="Address1"
+        label="郵便番号"
+        name="zipCode"
+        defaultValue={addressToEdit ? addressToEdit.zipCode : ''}
+        placeholder="郵便番号"
+        ref={register({ required: '郵便番号は必須です' })}
+        error={errors.zipCode?.message}
+      />
+      <Input
+        label="住所1"
         name="address1"
         defaultValue={addressToEdit ? addressToEdit.address1 : ''}
-        placeholder="Address 1"
-        ref={register({ required: 'Street Address is required' })}
+        placeholder="住所"
+        ref={register({ required: '住所は必須です' })}
         error={errors.address1?.message}
       />
       <Input
-        label="Address2"
+        label="住所2"
         name="address2"
         defaultValue={addressToEdit ? addressToEdit.address2 : ''}
-        placeholder="Apartment, suite, building, floor, etc."
+        placeholder="建物名等"
         ref={register}
         error={errors.address2?.message}
       />
-      <Input
+      {/* <Input
         label="City"
         name="city"
         defaultValue={addressToEdit ? addressToEdit.city : ''}
         placeholder="City"
         ref={register({ required: 'City is required' })}
         error={errors.city?.message}
-      />
+      /> */}
+
       <Input
-        label="Zipcode"
-        name="zipCode"
-        defaultValue={addressToEdit ? addressToEdit.zipCode : ''}
-        placeholder="Zip code"
-        ref={register({ required: 'Zip code is required' })}
-        error={errors.zipCode?.message}
-      />
-      <Input
-        label="Phone"
+        label="電話番号"
         name="phone"
         defaultValue={addressToEdit ? addressToEdit.phone : ''}
-        placeholder="Phone number"
+        placeholder="電話番号"
         type="text"
-        ref={register({ required: 'Phone is required' })}
+        ref={register({ required: '電話番号は必須です' })}
         error={errors.phone?.message}
       />
       <Button width="100%" loading={loading} disabled={loading}>
-        Submit
+        登録する
       </Button>
 
       {error && <p className="paragraph paragraph--error">{error}</p>}

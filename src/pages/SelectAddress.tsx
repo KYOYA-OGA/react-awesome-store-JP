@@ -33,12 +33,12 @@ const SelectAddress: React.FC<Props> = () => {
 
   return (
     <div className="page--select-address">
-      <h2 className="header">Select a shipping address</h2>
+      <h2 className="header">配送先住所を選択してください</h2>
       <div className="select-address">
         <div className="select-address__existing">
           {!userInfo?.shippingAddresses ||
           userInfo?.shippingAddresses?.length === 0 ? (
-            <p className="paragraph">No address, please add one</p>
+            <p className="paragraph">住所がありません。追加しましょう。</p>
           ) : (
             userInfo.shippingAddresses.map((address, index) => (
               <ShippingAddress
@@ -52,7 +52,7 @@ const SelectAddress: React.FC<Props> = () => {
           )}
         </div>
         <div className="select-address__add-new">
-          <h3 className="header">Add a new address</h3>
+          <h3 className="header">新しい住所を追加する</h3>
 
           <AddAndEditAddress
             userInfo={userInfo}
@@ -64,8 +64,8 @@ const SelectAddress: React.FC<Props> = () => {
 
       {openDialog && (
         <AlertDialog
-          header="Please confirm"
-          message="Are you sure you want to delete this address?"
+          header="確認してください"
+          message="本当にこの住所を削除しますか？"
           loading={loading}
           error={error}
           onCancel={() => {

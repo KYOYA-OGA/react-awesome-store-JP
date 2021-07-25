@@ -31,17 +31,17 @@ const OrderDetail: React.FC<Props> = () => {
 
   return (
     <div className="page--order-details">
-      <h2 className="header">Your order detail</h2>
+      <h2 className="header">注文詳細</h2>
 
       <div className="order-section">
-        <h4 className="header">Order ID:</h4>
+        <h4 className="header">オーダーID:</h4>
         <div className="order-section__content">
           <p className="paragraph paragraph--focus">{id}</p>
         </div>
       </div>
 
       <div className="order-section">
-        <h4 className="header">Purchased Items:</h4>
+        <h4 className="header">購入商品:</h4>
         {items.map(({ quantity, item: { id, title, price } }, i) => (
           <div key={id} className="order-section__content">
             <div className="order-item">
@@ -75,19 +75,18 @@ const OrderDetail: React.FC<Props> = () => {
       </div>
 
       <div className="order-section">
-        <h4 className="header">Order amount:</h4>
+        <h4 className="header">総計:</h4>
         <div className="order-section__content">
-          <p className="paragraph paragraph--focus">${formatAmount(amount)}</p>
+          <p className="paragraph paragraph--focus">{formatAmount(amount)}円</p>
         </div>
       </div>
 
       <div className="order-section">
-        <h4 className="header">Delivery address:</h4>
+        <h4 className="header">配送先住所:</h4>
         <div className="order-section__content">
           <div className="order-address">
             <p className="paragraph">
-              Recipient name:{' '}
-              <span className="paragraph--focus">{fullname}</span>
+              注文者名: <span className="paragraph--focus">{fullname}</span>
             </p>
             <p className="paragraph paragraph--focus">
               {address1}, {address2 ? address2 : ''}, {city}, {zipCode}, Tel:{' '}
@@ -98,14 +97,14 @@ const OrderDetail: React.FC<Props> = () => {
       </div>
 
       <div className="order-section">
-        <h4 className="header">Payment status:</h4>
+        <h4 className="header">支払い状況:</h4>
         <div className="order-section__content">
           <p className="paragraph paragraph--focus">{paymentStatus || 'n/a'}</p>
         </div>
       </div>
 
       <div className="order-section">
-        <h4 className="header">Shippment status:</h4>
+        <h4 className="header">配送状況:</h4>
         <div className="order-section__content">
           <p
             className="paragraph paragraph--focus"
