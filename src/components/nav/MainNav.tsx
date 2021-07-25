@@ -53,7 +53,7 @@ const MainNav: React.FC<Props> = () => {
       <div className="head__section">
         <div className="head__logo">
           <NavLink to="/">
-            <h2 className="header header--logo">AwesomeShop</h2>
+            <h2 className="header header--logo">ReactShop</h2>
           </NavLink>
         </div>
         <div className="head__search">

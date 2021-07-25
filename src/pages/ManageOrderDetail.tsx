@@ -93,7 +93,7 @@ const ManageOrderDetail: React.FC<Props> = () => {
 
               <div className="print-component">
                 <div className="page invoice" ref={invoiceRef}>
-                  <h1 className="header--center">AwesomeShop</h1>
+                  <h1 className="header--center">ReactShop</h1>
 
                   <div className="invoice__head">
                     <h3 className="header">販売者:</h3>

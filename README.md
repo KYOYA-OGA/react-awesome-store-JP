@@ -1,5 +1,9 @@
 ## React + TypeScript + Firebase で作ったサーバーレスなショッピングサイト
 
+### デモサイト
+
+https://awesome-shop-ja.web.app/
+
 ### 技術スタック
 
 - React
